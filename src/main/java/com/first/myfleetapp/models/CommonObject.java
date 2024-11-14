@@ -4,6 +4,7 @@ package com.first.myfleetapp.models;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 
@@ -12,10 +13,14 @@ import jakarta.persistence.MappedSuperclass;
 public class CommonObject {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String description;
     private String details;
+
+    public CommonObject() {
+
+    }
 
     public CommonObject(Integer Id, String description, String details) {
         this.id = id;
