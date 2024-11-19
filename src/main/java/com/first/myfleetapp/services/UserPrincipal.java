@@ -1,13 +1,10 @@
-package com.first.myfleetapp.models;
+package com.first.myfleetapp.services;
+
+import org.springframework.security;
+
 
 import java.util.Collection;
 import java.util.Collections;
-
-import com.first.myfleetapp.models.User;
-//import org.springframework.
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
 public class UserPrincipal implements UserDetails {
 
@@ -19,6 +16,7 @@ public class UserPrincipal implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+
         return Collections.singleton(new SimpleGrantedAuthority("USER"));
     }
 
@@ -49,6 +47,7 @@ public class UserPrincipal implements UserDetails {
 
     @Override
     public boolean isEnabled() {
+
         return true;
     }
 
